@@ -1,0 +1,13 @@
+#import urllib3
+from openpyxl import Workbook
+print ("habu")
+work_book = Workbook()
+work_book['Sheet'].title="Cities"
+worksheet=work_book.active
+with open("full_city_list.txt","r") as f:
+    for line in f:
+        row_data = line.split(";")
+        worksheet.append(row_data)
+        print(row_data)
+
+work_book.save("Excel File.xlsx")
